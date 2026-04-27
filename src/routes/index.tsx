@@ -64,9 +64,9 @@ const offerings = [
 
 function Index() {
   return (
-    <main className="min-h-dvh bg-cream-warm text-navy-ink selection:bg-amber-brand/30">
+    <main className="min-h-dvh text-navy-ink selection:bg-amber-brand/30">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-cream-warm/80 backdrop-blur-md border-b border-navy-ink/5">
+      <nav className="sticky top-0 z-50 bg-cream-warm/70 backdrop-blur-xl border-b border-navy-ink/5">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-baseline gap-1.5">
             <span className="font-heading font-bold text-xl tracking-tight text-navy-ink">amazon</span>
@@ -86,7 +86,6 @@ function Index() {
 
       {/* Hero */}
       <section className="relative pt-20 pb-24 overflow-hidden">
-        <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-warm)" }} />
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-brand/15 text-gold-deep text-[11px] font-bold tracking-[0.2em] uppercase mb-8">
@@ -168,7 +167,7 @@ function Index() {
           <p className="text-2xl text-amber-brand mt-3">∞</p>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">Aspirational Companies</h2>
         </div>
-        <div className="bg-cream-warm rounded-3xl p-8 lg:p-12 shadow-[var(--shadow-soft)] border border-navy-ink/5 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="bg-card/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-[var(--shadow-soft)] border border-navy-ink/5 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <h3 className="text-3xl md:text-4xl font-bold text-amber-brand mb-4">Orange HealthLabs</h3>
             <p className="text-navy-ink/70 leading-relaxed mb-8">
@@ -236,7 +235,7 @@ function Index() {
       </section>
 
       {/* Final hook */}
-      <section className="border-t border-navy-ink/10 py-20" style={{ background: "var(--gradient-warm)" }}>
+      <section className="border-t border-navy-ink/10 py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">Ready to create a future?</h2>
           <p className="text-lg text-navy-ink/70">
