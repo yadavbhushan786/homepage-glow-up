@@ -17,6 +17,10 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminTeamRouteImport } from './routes/admin.team'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminPortfolioRouteImport } from './routes/admin.portfolio'
+import { Route as AdminNewsRouteImport } from './routes/admin.news'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 
 const TeamRoute = TeamRouteImport.update({
@@ -59,6 +63,26 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminTeamRoute = AdminTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPortfolioRoute = AdminPortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminNewsRoute = AdminNewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -74,6 +98,10 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/team': typeof TeamRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/news': typeof AdminNewsRoute
+  '/admin/portfolio': typeof AdminPortfolioRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/team': typeof AdminTeamRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +112,10 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/team': typeof TeamRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/news': typeof AdminNewsRoute
+  '/admin/portfolio': typeof AdminPortfolioRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/team': typeof AdminTeamRoute
   '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +128,10 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/team': typeof TeamRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/news': typeof AdminNewsRoute
+  '/admin/portfolio': typeof AdminPortfolioRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/team': typeof AdminTeamRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +145,10 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/team'
     | '/admin/login'
+    | '/admin/news'
+    | '/admin/portfolio'
+    | '/admin/settings'
+    | '/admin/team'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +159,10 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/team'
     | '/admin/login'
+    | '/admin/news'
+    | '/admin/portfolio'
+    | '/admin/settings'
+    | '/admin/team'
     | '/admin'
   id:
     | '__root__'
@@ -130,6 +174,10 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/team'
     | '/admin/login'
+    | '/admin/news'
+    | '/admin/portfolio'
+    | '/admin/settings'
+    | '/admin/team'
     | '/admin/'
   fileRoutesById: FileRoutesById
 }
@@ -201,6 +249,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/team': {
+      id: '/admin/team'
+      path: '/team'
+      fullPath: '/admin/team'
+      preLoaderRoute: typeof AdminTeamRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/portfolio': {
+      id: '/admin/portfolio'
+      path: '/portfolio'
+      fullPath: '/admin/portfolio'
+      preLoaderRoute: typeof AdminPortfolioRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/news': {
+      id: '/admin/news'
+      path: '/news'
+      fullPath: '/admin/news'
+      preLoaderRoute: typeof AdminNewsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/login'
@@ -213,11 +289,19 @@ declare module '@tanstack/react-router' {
 
 interface AdminRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
+  AdminNewsRoute: typeof AdminNewsRoute
+  AdminPortfolioRoute: typeof AdminPortfolioRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminTeamRoute: typeof AdminTeamRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
+  AdminNewsRoute: AdminNewsRoute,
+  AdminPortfolioRoute: AdminPortfolioRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminTeamRoute: AdminTeamRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 

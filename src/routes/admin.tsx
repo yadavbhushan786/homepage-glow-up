@@ -11,13 +11,13 @@ export const Route = createFileRoute("/admin")({
   component: AdminShell,
 });
 
-const navItems = [
+const navItems: ReadonlyArray<{ to: "/admin" | "/admin/portfolio" | "/admin/team" | "/admin/news" | "/admin/settings"; label: string; exact?: boolean }> = [
   { to: "/admin", label: "Dashboard", exact: true },
   { to: "/admin/portfolio", label: "Portfolio" },
   { to: "/admin/team", label: "Team" },
   { to: "/admin/news", label: "News" },
   { to: "/admin/settings", label: "Settings" },
-] as const;
+];
 
 function AdminShell() {
   const navigate = useNavigate();
