@@ -5,6 +5,8 @@ import portfolioAi from "@/assets/portfolio-ai.jpg";
 import portfolioGrid from "@/assets/portfolio-grid.jpg";
 import portfolioOffice from "@/assets/portfolio-office.jpg";
 import portfolioTeam from "@/assets/portfolio-team.jpg";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -65,24 +67,7 @@ const offerings = [
 function Index() {
   return (
     <main className="min-h-dvh text-navy-ink selection:bg-amber-brand/30">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-cream-warm/70 backdrop-blur-xl border-b border-navy-ink/5">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-baseline gap-1.5">
-            <span className="font-heading font-bold text-xl tracking-tight text-navy-ink">amazon</span>
-            <span className="font-heading font-bold text-xl tracking-tight text-amber-brand">smbhav</span>
-            <span className="font-heading font-medium text-xl tracking-tight text-navy-ink/70">venture fund</span>
-          </Link>
-          <div className="hidden md:flex items-center gap-10 text-sm font-medium">
-            <a href="#team" className="hover:text-amber-brand transition-colors">Our Team</a>
-            <a href="#portfolio" className="hover:text-amber-brand transition-colors">Portfolio</a>
-            <a href="#news" className="hover:text-amber-brand transition-colors">News & Events</a>
-          </div>
-          <button className="bg-amber-brand text-navy-ink px-5 py-2.5 text-sm font-semibold rounded-full hover:bg-amber-glow transition-all duration-300 shadow-[var(--shadow-amber)]">
-            Got an idea? Speak to us
-          </button>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* Hero */}
       <section className="relative pt-20 pb-24 overflow-hidden">
@@ -99,13 +84,12 @@ function Index() {
               We partner with bold leaders and help them scale products globally with focused long-term execution and an unmatched ecosystem.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-amber-brand text-navy-ink px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:scale-[1.02] transition-transform shadow-[var(--shadow-amber)]">
-                Explore Portfolio
-                <span>→</span>
-              </button>
-              <button className="border border-navy-ink/15 bg-cream-warm/60 px-8 py-4 rounded-full font-semibold hover:bg-cream-warm transition-colors">
+              <Link to="/portfolio" className="bg-amber-brand text-navy-ink px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:scale-[1.02] transition-transform shadow-[var(--shadow-amber)]">
+                Explore Portfolio <span>→</span>
+              </Link>
+              <Link to="/contact" className="border border-navy-ink/15 bg-cream-warm/60 px-8 py-4 rounded-full font-semibold hover:bg-cream-warm transition-colors">
                 Get in Touch
-              </button>
+              </Link>
             </div>
           </div>
           <div className="lg:col-span-5 relative">
@@ -142,9 +126,9 @@ function Index() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Portfolio</h2>
             <p className="text-lg text-navy-ink/60">A curated set of high-conviction companies building category leadership.</p>
           </div>
-          <a href="#" className="text-gold-deep font-bold flex items-center gap-2 group border-b-2 border-amber-brand/30 pb-1 self-start">
+          <Link to="/portfolio" className="text-gold-deep font-bold flex items-center gap-2 group border-b-2 border-amber-brand/30 pb-1 self-start">
             View all <span className="group-hover:translate-x-1 transition-transform">→</span>
-          </a>
+          </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {portfolio.map((p) => (
@@ -173,9 +157,9 @@ function Index() {
             <p className="text-navy-ink/70 leading-relaxed mb-8">
               Orange Health Labs is a fast-growing diagnostics company delivering directly to customer doorsteps and accelerating reliable test results across major cities.
             </p>
-            <button className="bg-amber-brand text-navy-ink px-7 py-3 rounded-full font-bold hover:bg-amber-glow transition-colors shadow-[var(--shadow-amber)]">
+            <Link to="/portfolio" className="inline-block bg-amber-brand text-navy-ink px-7 py-3 rounded-full font-bold hover:bg-amber-glow transition-colors shadow-[var(--shadow-amber)]">
               Read More →
-            </button>
+            </Link>
           </div>
           <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-[var(--shadow-soft)]">
             <img src={aspirationalHealth} alt="Orange HealthLabs" width={1200} height={900} loading="lazy" className="w-full h-full object-cover" />
@@ -206,9 +190,9 @@ function Index() {
                 {o.desc}
               </p>
               {i === 3 && (
-                <button className="mt-5 bg-amber-brand text-navy-ink px-5 py-2 rounded-full text-xs font-bold hover:bg-amber-glow transition-colors">
+                <Link to="/contact" className="mt-5 inline-block bg-amber-brand text-navy-ink px-5 py-2 rounded-full text-xs font-bold hover:bg-amber-glow transition-colors">
                   Get in touch
-                </button>
+                </Link>
               )}
             </div>
           ))}
@@ -227,9 +211,9 @@ function Index() {
             <p className="text-cream-warm/70 text-lg mb-10">
               We partner with founders who are ready to scale fast with strategic capital, deep operating support, and a long-term vision.
             </p>
-            <button className="bg-amber-brand text-navy-ink px-10 py-4 rounded-full font-bold hover:scale-[1.03] transition-transform shadow-[var(--shadow-amber)]">
+            <Link to="/contact" className="inline-block bg-amber-brand text-navy-ink px-10 py-4 rounded-full font-bold hover:scale-[1.03] transition-transform shadow-[var(--shadow-amber)]">
               Get in Touch
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -240,25 +224,14 @@ function Index() {
           <h2 className="text-4xl md:text-6xl font-bold mb-6">Ready to create a future?</h2>
           <p className="text-lg text-navy-ink/70">
             Write to us at{" "}
-            <a href="mailto:contact-asvf@amazon.com" className="text-amber-brand font-bold border-b-2 border-amber-brand/40 hover:border-amber-brand transition-colors">
-              contact-asvf@amazon.com
+            <a href="mailto:contact@asvf.com" className="text-amber-brand font-bold border-b-2 border-amber-brand/40 hover:border-amber-brand transition-colors">
+              contact@asvf.com
             </a>
           </p>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-navy-ink/10 py-10">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-baseline gap-1.5">
-            <span className="font-heading font-bold tracking-tight">amazon</span>
-            <span className="font-heading font-bold tracking-tight text-amber-brand">smbhav</span>
-          </div>
-          <p className="text-xs text-navy-ink/50">
-            SMBHAV Venture Fund | Conditions of Use | © 1996–2025
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
