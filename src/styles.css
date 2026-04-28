@@ -84,6 +84,11 @@
   --navy-ink: oklch(0.18 0.04 260);
   --cream-warm: oklch(0.97 0.018 80);
   --cream-cool: oklch(0.965 0.008 250);
+  --obsidian: oklch(0.16 0.005 260);
+  --obsidian-deep: oklch(0.11 0.005 260);
+  --brass: oklch(0.72 0.09 75);
+  --brass-dim: oklch(0.45 0.06 70);
+  --sand: oklch(0.92 0.012 85);
   --gradient-warm: linear-gradient(110deg, oklch(0.965 0.008 250) 0%, oklch(0.965 0.008 250) 38%, oklch(0.955 0.045 78) 62%, oklch(0.93 0.07 75) 100%);
   --gradient-page: radial-gradient(ellipse 90% 60% at 15% 0%, oklch(0.97 0.012 250) 0%, transparent 55%), radial-gradient(ellipse 80% 70% at 100% 30%, oklch(0.94 0.06 75) 0%, transparent 60%), radial-gradient(circle at 70% 100%, oklch(0.92 0.08 70 / 0.4) 0%, transparent 50%), oklch(0.97 0.018 80);
   --gradient-amber: linear-gradient(135deg, var(--amber-brand) 0%, var(--gold-deep) 100%);
