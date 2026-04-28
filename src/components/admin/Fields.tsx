@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Upload, X } from "lucide-react";
 import { mediaApi } from "@/lib/api";
 
 interface Props {
@@ -20,15 +21,18 @@ export function MediaUpload({ value, onChange, label = "Image" }: Props) {
   };
   return (
     <div>
-      <label className="text-xs font-bold uppercase tracking-widest text-navy-ink/60">{label}</label>
+      <label className="a-label">{label}</label>
       <div className="mt-2 flex items-center gap-3">
         {value ? (
-          <img src={value} alt="" className="size-16 rounded-xl object-cover border border-navy-ink/10" />
+          <img src={value} alt="" className="size-16 rounded-xl object-cover border border-[var(--a-border)]" />
         ) : (
-          <div className="size-16 rounded-xl bg-cream-warm border border-dashed border-navy-ink/20" />
+          <div className="size-16 rounded-xl bg-[var(--a-surface-2)] border border-dashed border-[var(--a-border)] flex items-center justify-center text-[var(--a-text-muted)]">
+            <Upload className="size-5" />
+          </div>
         )}
-        <label className="px-4 py-2 rounded-full border border-navy-ink/15 text-xs font-bold cursor-pointer hover:border-amber-brand">
-          {busy ? "Uploading..." : value ? "Replace" : "Upload"}
+        <label className="a-btn a-btn-ghost cursor-pointer">
+          <Upload className="size-3.5" />
+          {busy ? "Uploading…" : value ? "Replace" : "Upload"}
           <input
             type="file"
             accept="image/*"
@@ -37,7 +41,9 @@ export function MediaUpload({ value, onChange, label = "Image" }: Props) {
           />
         </label>
         {value && (
-          <button onClick={() => onChange("")} className="text-xs text-navy-ink/50 hover:text-destructive">Remove</button>
+          <button onClick={() => onChange("")} className="text-xs text-[var(--a-text-muted)] hover:text-[var(--a-danger)] inline-flex items-center gap-1 transition-colors">
+            <X className="size-3" /> Remove
+          </button>
         )}
       </div>
     </div>
@@ -51,17 +57,29 @@ interface FieldProps {
   type?: string;
   textarea?: boolean;
   rows?: number;
+  placeholder?: string;
 }
 
-export function Field({ label, value, onChange, type = "text", textarea, rows = 3 }: FieldProps) {
-  const cls = "mt-2 w-full px-4 py-2.5 rounded-xl border border-navy-ink/10 bg-cream-warm/50 focus:outline-none focus:border-amber-brand text-sm";
+export function Field({ label, value, onChange, type = "text", textarea, rows = 3, placeholder }: FieldProps) {
   return (
     <div>
-      <label className="text-xs font-bold uppercase tracking-widest text-navy-ink/60">{label}</label>
+      <label className="a-label">{label}</label>
       {textarea ? (
-        <textarea value={value} onChange={(e) => onChange(e.target.value)} rows={rows} className={cls + " resize-none"} />
+        <textarea
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          rows={rows}
+          placeholder={placeholder}
+          className="a-input mt-2 resize-none leading-relaxed"
+        />
       ) : (
-        <input type={type} value={value} onChange={(e) => onChange(e.target.value)} className={cls} />
+        <input
+          type={type}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}
+          className="a-input mt-2"
+        />
       )}
     </div>
   );
