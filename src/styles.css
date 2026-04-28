@@ -208,3 +208,189 @@
 .obsidian-scope .obsidian-hairline {
   border-color: oklch(1 0 0 / 0.08);
 }
+
+/* ========================================================================
+   Admin Panel — Premium SaaS scope
+   Scoped to .admin-scope so it doesn't leak into the public site.
+   ======================================================================== */
+.admin-scope {
+  --a-bg: oklch(0.985 0.005 260);
+  --a-surface: oklch(1 0 0);
+  --a-surface-2: oklch(0.975 0.006 260);
+  --a-text: oklch(0.22 0.03 265);
+  --a-text-soft: oklch(0.45 0.02 265);
+  --a-text-muted: oklch(0.62 0.015 265);
+  --a-border: oklch(0.92 0.008 265);
+  --a-border-soft: oklch(0.95 0.006 265);
+  --a-accent: oklch(0.62 0.21 275);
+  --a-accent-2: oklch(0.68 0.18 215);
+  --a-accent-soft: oklch(0.62 0.21 275 / 0.1);
+  --a-success: oklch(0.7 0.16 155);
+  --a-warn: oklch(0.78 0.15 75);
+  --a-danger: oklch(0.62 0.22 25);
+  --a-grad: linear-gradient(135deg, oklch(0.62 0.21 275) 0%, oklch(0.65 0.2 245) 50%, oklch(0.7 0.18 200) 100%);
+  --a-grad-soft: linear-gradient(135deg, oklch(0.62 0.21 275 / 0.12) 0%, oklch(0.7 0.18 200 / 0.12) 100%);
+  --a-shadow-sm: 0 1px 2px oklch(0.2 0.04 265 / 0.04), 0 1px 3px oklch(0.2 0.04 265 / 0.06);
+  --a-shadow: 0 4px 12px -2px oklch(0.2 0.04 265 / 0.08), 0 2px 6px -1px oklch(0.2 0.04 265 / 0.05);
+  --a-shadow-lg: 0 20px 50px -20px oklch(0.2 0.04 265 / 0.18), 0 8px 20px -8px oklch(0.2 0.04 265 / 0.1);
+  --a-glow: 0 0 0 1px oklch(0.62 0.21 275 / 0.3), 0 8px 28px -6px oklch(0.62 0.21 275 / 0.35);
+
+  background: var(--a-bg);
+  color: var(--a-text);
+  font-family: var(--font-body);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 0% 0%, oklch(0.62 0.21 275 / 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 100% 0%, oklch(0.7 0.18 200 / 0.06) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+.admin-scope.dark,
+.admin-scope[data-theme="dark"] {
+  --a-bg: oklch(0.16 0.01 265);
+  --a-surface: oklch(0.21 0.012 265);
+  --a-surface-2: oklch(0.19 0.012 265);
+  --a-text: oklch(0.96 0.005 265);
+  --a-text-soft: oklch(0.78 0.012 265);
+  --a-text-muted: oklch(0.6 0.015 265);
+  --a-border: oklch(1 0 0 / 0.08);
+  --a-border-soft: oklch(1 0 0 / 0.05);
+  --a-accent-soft: oklch(0.62 0.21 275 / 0.18);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 0% 0%, oklch(0.62 0.21 275 / 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 60% at 100% 0%, oklch(0.7 0.18 200 / 0.12) 0%, transparent 55%);
+}
+
+.admin-scope .a-card {
+  background: var(--a-surface);
+  border: 1px solid var(--a-border);
+  border-radius: 16px;
+  box-shadow: var(--a-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+}
+.admin-scope .a-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--a-shadow);
+  border-color: oklch(0.62 0.21 275 / 0.25);
+}
+.admin-scope .a-glass {
+  background: color-mix(in oklab, var(--a-surface) 70%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--a-border);
+}
+.admin-scope .a-input {
+  width: 100%;
+  background: var(--a-surface-2);
+  border: 1px solid var(--a-border);
+  border-radius: 12px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.875rem;
+  color: var(--a-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.admin-scope .a-input:focus {
+  outline: none;
+  border-color: var(--a-accent);
+  box-shadow: 0 0 0 3px oklch(0.62 0.21 275 / 0.15);
+  background: var(--a-surface);
+}
+.admin-scope .a-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--a-text-muted);
+}
+.admin-scope .a-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.admin-scope .a-btn-primary {
+  background: var(--a-grad);
+  color: white;
+  box-shadow: 0 6px 18px -6px oklch(0.62 0.21 275 / 0.55);
+}
+.admin-scope .a-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px -8px oklch(0.62 0.21 275 / 0.7);
+}
+.admin-scope .a-btn-ghost {
+  background: transparent;
+  color: var(--a-text-soft);
+  border: 1px solid var(--a-border);
+}
+.admin-scope .a-btn-ghost:hover {
+  border-color: var(--a-accent);
+  color: var(--a-accent);
+  background: var(--a-accent-soft);
+}
+.admin-scope .a-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--a-accent-soft);
+  color: var(--a-accent);
+  border: 1px solid oklch(0.62 0.21 275 / 0.2);
+}
+
+/* sidebar nav */
+.admin-scope .a-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--a-text-soft);
+  position: relative;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.admin-scope .a-nav-item:hover {
+  background: var(--a-surface-2);
+  color: var(--a-text);
+}
+.admin-scope .a-nav-item:hover svg {
+  transform: scale(1.1);
+}
+.admin-scope .a-nav-item svg {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.admin-scope .a-nav-item.is-active {
+  background: var(--a-grad-soft);
+  color: var(--a-accent);
+  font-weight: 600;
+}
+.admin-scope .a-nav-item.is-active::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 25%;
+  bottom: 25%;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: var(--a-grad);
+}
+
+/* fade in */
+.admin-scope .a-fade-in {
+  animation: a-fade-in 0.4s ease both;
+}
+@keyframes a-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
