@@ -34,8 +34,8 @@ function MemberDrawer({ m, onClose }: { m: TeamMember; onClose: () => void }) {
         </div>
         <div className="p-8 md:p-10">
           <div className="aspect-[4/5] bg-white/5 mb-8 overflow-hidden relative">
-            {m.avatar ? (
-              <img src={m.avatar} alt={m.name} className="w-full h-full object-cover grayscale brightness-75" />
+            {m.image ? (
+              <img src={m.image} alt={m.name} className="w-full h-full object-cover grayscale brightness-75" />
             ) : (
               <div className="w-full h-full flex items-center justify-center font-display text-7xl text-brass/30">
                 {initials(m.name)}
@@ -97,9 +97,9 @@ function TeamPage() {
               className="group bg-obsidian p-8 md:p-10 text-left hover:bg-obsidian-deep transition-colors duration-700"
             >
               <div className="aspect-[4/5] bg-white/5 mb-6 relative overflow-hidden">
-                {m.avatar ? (
+                {m.image ? (
                   <img
-                    src={m.avatar}
+                    src={m.image}
                     alt={m.name}
                     className="w-full h-full object-cover grayscale brightness-75 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
                   />
